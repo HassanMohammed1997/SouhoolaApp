@@ -3,6 +3,7 @@ package com.hassanmohammed.souhoolaapp.di
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.hassanmohammed.souhoolaapp.data.db.PhotoDao
 import com.hassanmohammed.souhoolaapp.data.db.PhotoDatabase
 import dagger.Module
 import dagger.Provides
@@ -19,4 +20,10 @@ object DatabaseModule {
     fun provideAppDatabase(@ApplicationContext context: Context) : PhotoDatabase =
         Room.databaseBuilder(context, PhotoDatabase::class.java, "app_database")
             .build()
+
+    @Provides
+    @Singleton
+    fun providePhotoDao(database: PhotoDatabase): PhotoDao {
+        return database.photoDao()
+    }
 }

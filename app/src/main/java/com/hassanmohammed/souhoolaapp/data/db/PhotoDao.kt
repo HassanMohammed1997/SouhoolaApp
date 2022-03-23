@@ -16,7 +16,7 @@ interface PhotoDao {
     @Query("SELECT * FROM photos")
     fun getAllPhotos(): PagingSource<Int, Photo>
 
-    @Query("SELECT * FROM photos WHERE photoId = :photo_id")
+    @Query("SELECT * FROM photos WHERE photo_id = :photoId")
     fun getPhoto(photoId: String): Flow<Photo>
 
     @Query("DELETE FROM photos")
