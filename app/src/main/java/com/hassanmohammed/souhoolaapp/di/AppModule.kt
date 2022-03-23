@@ -1,13 +1,13 @@
 package com.hassanmohammed.souhoolaapp.di
 
-import com.hassanmohammed.souhoolaapp.data.FlikerRepository
-import com.hassanmohammed.souhoolaapp.data.FlikerRepositoryImpl
-import com.hassanmohammed.souhoolaapp.data.datasource.FlikerPhotoLocalDataSource
-import com.hassanmohammed.souhoolaapp.data.datasource.FlikerPhotoLocaleDataSourceImpl
-import com.hassanmohammed.souhoolaapp.data.datasource.FlikerPhotoRemoteDataSource
-import com.hassanmohammed.souhoolaapp.data.datasource.FlikerPhotoRemoteDataSourceImpl
-import com.hassanmohammed.souhoolaapp.data.db.PhotoDao
-import com.hassanmohammed.souhoolaapp.data.db.PhotoDatabase
+import com.hassanmohammed.souhoolaapp.data.resporitory.FlikerRepository
+import com.hassanmohammed.souhoolaapp.data.resporitory.FlikerRepositoryImpl
+import com.hassanmohammed.souhoolaapp.data.datasource.local.FlikerPhotoLocalDataSource
+import com.hassanmohammed.souhoolaapp.data.datasource.local.FlikerPhotoLocaleDataSourceImpl
+import com.hassanmohammed.souhoolaapp.data.datasource.remote.FlikerPhotoRemoteDataSource
+import com.hassanmohammed.souhoolaapp.data.datasource.remote.FlikerPhotoRemoteDataSourceImpl
+import com.hassanmohammed.souhoolaapp.data.db.FlikerPhotoDao
+import com.hassanmohammed.souhoolaapp.data.db.FlikerDatabase
 import com.hassanmohammed.souhoolaapp.data.remote.FlikerService
 import dagger.Module
 import dagger.Provides
@@ -20,15 +20,15 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideFlikerPhotoLocaleDataSource(photoDao: PhotoDao): FlikerPhotoLocalDataSource {
-        return FlikerPhotoLocaleDataSourceImpl(photoDao)
+    fun provideFlikerPhotoLocaleDataSource(flikerPhotoDao: FlikerPhotoDao): FlikerPhotoLocalDataSource {
+        return FlikerPhotoLocaleDataSourceImpl(flikerPhotoDao)
     }
 
     @Provides
     @Singleton
     fun provideFlikerPhotoRemoteLocalDataSource(
         api: FlikerService,
-        db: PhotoDatabase
+        db: FlikerDatabase
     ): FlikerPhotoRemoteDataSource {
         return FlikerPhotoRemoteDataSourceImpl(api, db)
     }

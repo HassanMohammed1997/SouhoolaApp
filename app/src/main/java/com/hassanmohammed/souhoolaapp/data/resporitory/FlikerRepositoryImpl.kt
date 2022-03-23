@@ -1,9 +1,8 @@
-package com.hassanmohammed.souhoolaapp.data
+package com.hassanmohammed.souhoolaapp.data.resporitory
 
 import androidx.paging.PagingData
-import com.hassanmohammed.souhoolaapp.data.datasource.FlikerPhotoLocalDataSource
-import com.hassanmohammed.souhoolaapp.data.datasource.FlikerPhotoLocaleDataSourceImpl
-import com.hassanmohammed.souhoolaapp.data.datasource.FlikerPhotoRemoteDataSource
+import com.hassanmohammed.souhoolaapp.data.datasource.local.FlikerPhotoLocalDataSource
+import com.hassanmohammed.souhoolaapp.data.datasource.remote.FlikerPhotoRemoteDataSource
 import com.hassanmohammed.souhoolaapp.domain.models.Photo
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

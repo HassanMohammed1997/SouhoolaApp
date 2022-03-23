@@ -10,7 +10,7 @@ import com.hassanmohammed.souhoolaapp.domain.models.Photo
     version = 1,
     exportSchema = false
 )
-abstract class PhotoDatabase: RoomDatabase() {
-    abstract fun photoDao() : PhotoDao
-    abstract fun photoRemoteKeysDao() : PhotoRemoteKeysDao
+abstract class FlikerDatabase: RoomDatabase() {
+    abstract fun photoDao() : FlikerPhotoDao
+    abstract fun photoRemoteKeysDao() : FlikerPhotoRemoteKeysDao
 }

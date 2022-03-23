@@ -5,7 +5,7 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.hassanmohammed.souhoolaapp.data.db.PhotoDatabase
+import com.hassanmohammed.souhoolaapp.data.db.FlikerDatabase
 import com.hassanmohammed.souhoolaapp.data.remote.FlikerService
 import com.hassanmohammed.souhoolaapp.domain.models.FlikerPhotoRemoteKeys
 import com.hassanmohammed.souhoolaapp.domain.models.Photo
@@ -18,7 +18,7 @@ private const val DEFAULT_PAGE = 1
 @OptIn(ExperimentalPagingApi::class)
 class FlikerRemoteMediator @Inject constructor(
     private val service: FlikerService,
-    private val db: PhotoDatabase
+    private val db: FlikerDatabase
 
 ) : RemoteMediator<Int, Photo>() {
     private val photoDao = db.photoDao()

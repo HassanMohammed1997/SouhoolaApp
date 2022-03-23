@@ -1,11 +1,9 @@
-package com.hassanmohammed.souhoolaapp.data
+package com.hassanmohammed.souhoolaapp.data.datasource.remote
 
 import androidx.paging.PagingData
 import com.hassanmohammed.souhoolaapp.domain.models.Photo
 import kotlinx.coroutines.flow.Flow
 
-interface FlikerRepository {
+interface FlikerPhotoRemoteDataSource {
     fun getPhotos() : Flow<PagingData<Photo>>
-
-    fun getPhotoFromDatabase(id: String) : Flow<Photo>
 }

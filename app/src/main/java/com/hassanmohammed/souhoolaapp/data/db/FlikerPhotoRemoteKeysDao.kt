@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.hassanmohammed.souhoolaapp.domain.models.FlikerPhotoRemoteKeys
 
 @Dao
-interface PhotoRemoteKeysDao {
+interface FlikerPhotoRemoteKeysDao {
     @Query("SELECT * FROM photo_remote_keys WHERE id = :photoId")
     suspend fun getPhotoRemoteKey(photoId: String) : FlikerPhotoRemoteKeys
 
