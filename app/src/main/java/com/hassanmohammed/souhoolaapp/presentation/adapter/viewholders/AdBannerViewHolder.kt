@@ -1,4 +1,4 @@
-package com.hassanmohammed.souhoolaapp.presentation
+package com.hassanmohammed.souhoolaapp.presentation.adapter.viewholders
 
 import android.view.LayoutInflater
 import android.view.View

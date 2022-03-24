@@ -1,10 +1,12 @@
-package com.hassanmohammed.souhoolaapp.presentation
+package com.hassanmohammed.souhoolaapp.presentation.adapter
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hassanmohammed.souhoolaapp.domain.models.Photo
+import com.hassanmohammed.souhoolaapp.presentation.adapter.viewholders.AdBannerViewHolder
+import com.hassanmohammed.souhoolaapp.presentation.adapter.viewholders.FlickrPhotoViewHolder
 import javax.inject.Inject
 
 private const val BANNER_VIEW_TYPE = 0
@@ -15,7 +17,7 @@ class FlikerPhotoPagingAdapter @Inject constructor() :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
         item?.let {
-            if (holder is FlikerPhotoViewHolder)
+            if (holder is FlickrPhotoViewHolder)
                 holder.bind(item)
         }
     }
@@ -24,7 +26,7 @@ class FlikerPhotoPagingAdapter @Inject constructor() :
         return if (viewType == BANNER_VIEW_TYPE)
             AdBannerViewHolder.get(parent)
         else
-            FlikerPhotoViewHolder.get(parent)
+            FlickrPhotoViewHolder.get(parent)
     }
 
     override fun getItemViewType(position: Int): Int {

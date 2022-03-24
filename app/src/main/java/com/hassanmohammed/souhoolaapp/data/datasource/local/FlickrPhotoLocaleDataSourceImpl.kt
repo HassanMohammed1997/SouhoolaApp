@@ -1,13 +1,13 @@
 package com.hassanmohammed.souhoolaapp.data.datasource.local
 
-import com.hassanmohammed.souhoolaapp.data.db.FlikerPhotoDao
+import com.hassanmohammed.souhoolaapp.data.db.FlickrPhotoDao
 import com.hassanmohammed.souhoolaapp.domain.models.Photo
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class FlikerPhotoLocaleDataSourceImpl @Inject constructor(private val flikerPhotoDao: FlikerPhotoDao) :
-    FlikerPhotoLocalDataSource {
+class FlickrPhotoLocaleDataSourceImpl @Inject constructor(private val flickrPhotoDao: FlickrPhotoDao) :
+    FlickrPhotoLocalDataSource {
     override fun getPhotoFromDB(id: String): Flow<Photo> {
-        return flikerPhotoDao.getPhoto(id)
+        return flickrPhotoDao.getPhoto(id)
     }
 }

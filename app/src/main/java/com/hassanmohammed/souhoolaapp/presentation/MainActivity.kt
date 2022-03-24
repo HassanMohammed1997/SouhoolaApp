@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.hassanmohammed.souhoolaapp.R
+import com.hassanmohammed.souhoolaapp.presentation.adapter.FlikerPhotoPagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,7 +15,7 @@ private const val TAG = "MainActivity"
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private val viewModel by viewModels<FlikerViewModel>()
+    private val viewModel by viewModels<FlickerViewModel>()
 
     @Inject
     lateinit var flikerFlikerPhotoPagingPagingAdapter: FlikerPhotoPagingAdapter

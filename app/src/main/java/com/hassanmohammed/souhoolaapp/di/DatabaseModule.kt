@@ -2,8 +2,8 @@ package com.hassanmohammed.souhoolaapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.hassanmohammed.souhoolaapp.data.db.FlikerPhotoDao
-import com.hassanmohammed.souhoolaapp.data.db.FlikerDatabase
+import com.hassanmohammed.souhoolaapp.data.db.FlickrPhotoDao
+import com.hassanmohammed.souhoolaapp.data.db.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,13 +16,13 @@ import javax.inject.Singleton
 object DatabaseModule {
     @Provides
     @Singleton
-    fun provideAppDatabase(@ApplicationContext context: Context) : FlikerDatabase =
-        Room.databaseBuilder(context, FlikerDatabase::class.java, "app_database")
+    fun provideAppDatabase(@ApplicationContext context: Context) : AppDatabase =
+        Room.databaseBuilder(context, AppDatabase::class.java, "app_database")
             .build()
 
     @Provides
     @Singleton
-    fun providePhotoDao(database: FlikerDatabase): FlikerPhotoDao {
+    fun providePhotoDao(database: AppDatabase): FlickrPhotoDao {
         return database.photoDao()
     }
 }

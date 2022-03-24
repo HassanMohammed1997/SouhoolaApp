@@ -1,14 +1,14 @@
 package com.hassanmohammed.souhoolaapp.di
 
-import com.hassanmohammed.souhoolaapp.data.datasource.local.FlikerPhotoLocalDataSource
-import com.hassanmohammed.souhoolaapp.data.datasource.local.FlikerPhotoLocaleDataSourceImpl
-import com.hassanmohammed.souhoolaapp.data.datasource.remote.FlikerPhotoRemoteDataSource
-import com.hassanmohammed.souhoolaapp.data.datasource.remote.FlikerPhotoRemoteDataSourceImpl
-import com.hassanmohammed.souhoolaapp.data.db.FlikerDatabase
-import com.hassanmohammed.souhoolaapp.data.db.FlikerPhotoDao
-import com.hassanmohammed.souhoolaapp.data.remote.FlikerService
-import com.hassanmohammed.souhoolaapp.data.resporitory.FlikerRepository
-import com.hassanmohammed.souhoolaapp.data.resporitory.FlikerRepositoryImpl
+import com.hassanmohammed.souhoolaapp.data.datasource.local.FlickrPhotoLocalDataSource
+import com.hassanmohammed.souhoolaapp.data.datasource.local.FlickrPhotoLocaleDataSourceImpl
+import com.hassanmohammed.souhoolaapp.data.datasource.remote.FlickrPhotoRemoteDataSource
+import com.hassanmohammed.souhoolaapp.data.datasource.remote.FlickrPhotoRemoteDataSourceImpl
+import com.hassanmohammed.souhoolaapp.data.db.AppDatabase
+import com.hassanmohammed.souhoolaapp.data.db.FlickrPhotoDao
+import com.hassanmohammed.souhoolaapp.data.remote.FlickrService
+import com.hassanmohammed.souhoolaapp.data.resporitory.FlickrRepository
+import com.hassanmohammed.souhoolaapp.data.resporitory.FlickrRepositoryImpl
 import com.hassanmohammed.souhoolaapp.domain.usecases.GetFlikerPhotoFromApiUseCase
 import com.hassanmohammed.souhoolaapp.domain.usecases.GetFlikerPhotoFromApiUseCaseImpl
 import com.hassanmohammed.souhoolaapp.domain.usecases.GetFlikerPhotoFromDatabaseUseCase
@@ -24,37 +24,37 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideFlikerPhotoLocaleDataSource(flikerPhotoDao: FlikerPhotoDao): FlikerPhotoLocalDataSource {
-        return FlikerPhotoLocaleDataSourceImpl(flikerPhotoDao)
+    fun provideFlikerPhotoLocaleDataSource(flickrPhotoDao: FlickrPhotoDao): FlickrPhotoLocalDataSource {
+        return FlickrPhotoLocaleDataSourceImpl(flickrPhotoDao)
     }
 
     @Provides
     @Singleton
     fun provideFlikerPhotoRemoteLocalDataSource(
-        api: FlikerService,
-        db: FlikerDatabase
-    ): FlikerPhotoRemoteDataSource {
-        return FlikerPhotoRemoteDataSourceImpl(api, db)
+        api: FlickrService,
+        db: AppDatabase
+    ): FlickrPhotoRemoteDataSource {
+        return FlickrPhotoRemoteDataSourceImpl(api, db)
     }
 
     @Provides
     @Singleton
     fun provideFlikerRepository(
-        localDataSource: FlikerPhotoLocalDataSource,
-        remoteDataSource: FlikerPhotoRemoteDataSource
-    ): FlikerRepository {
-        return FlikerRepositoryImpl(localDataSource, remoteDataSource)
+        localDataSource: FlickrPhotoLocalDataSource,
+        remoteDataSource: FlickrPhotoRemoteDataSource
+    ): FlickrRepository {
+        return FlickrRepositoryImpl(localDataSource, remoteDataSource)
     }
 
     @Provides
     @Singleton
-    fun provideGetFlikerPhotoFromApiUseCase(repository: FlikerRepository): GetFlikerPhotoFromApiUseCase {
+    fun provideGetFlickrPhotoFromApiUseCase(repository: FlickrRepository): GetFlikerPhotoFromApiUseCase {
         return GetFlikerPhotoFromApiUseCaseImpl(repository)
     }
 
     @Provides
     @Singleton
-    fun provideFlikerPhotoFromDatabaseUseCase(repository: FlikerRepository): GetFlikerPhotoFromDatabaseUseCase {
+    fun provideFlickrPhotoFromDatabaseUseCase(repository: FlickrRepository): GetFlikerPhotoFromDatabaseUseCase {
         return GetFlikerPhotoFromDatabaseUseCaseImpl(repository)
     }
 }

@@ -1,4 +1,4 @@
-package com.hassanmohammed.souhoolaapp.presentation
+package com.hassanmohammed.souhoolaapp.presentation.adapter.viewholders
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hassanmohammed.souhoolaapp.databinding.ListItemFlikerPhotoBinding
 import com.hassanmohammed.souhoolaapp.domain.models.Photo
 
-class FlikerPhotoViewHolder(private val binding: ListItemFlikerPhotoBinding) :
+class FlickrPhotoViewHolder(private val binding: ListItemFlikerPhotoBinding) :
     RecyclerView.ViewHolder(binding.root) {
     companion object {
-        fun get(parent: ViewGroup): FlikerPhotoViewHolder {
+        fun get(parent: ViewGroup): FlickrPhotoViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val binding = ListItemFlikerPhotoBinding.inflate(inflater, parent, false)
-            return FlikerPhotoViewHolder(binding)
+            return FlickrPhotoViewHolder(binding)
         }
     }
 

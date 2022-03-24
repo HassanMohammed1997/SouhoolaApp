@@ -2,7 +2,7 @@ package com.hassanmohammed.souhoolaapp.di
 
 import com.hassanmohammed.souhoolaapp.BuildConfig
 import com.hassanmohammed.souhoolaapp.utils.DEFAULT_CONNECTION_TIMEOUT
-import com.hassanmohammed.souhoolaapp.data.remote.FlikerService
+import com.hassanmohammed.souhoolaapp.data.remote.FlickrService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,7 +48,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideCurrencyService(retrofit: Retrofit): FlikerService {
-        return retrofit.create(FlikerService::class.java)
+    fun provideCurrencyService(retrofit: Retrofit): FlickrService {
+        return retrofit.create(FlickrService::class.java)
     }
 }

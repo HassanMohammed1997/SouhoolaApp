@@ -9,7 +9,7 @@ import com.hassanmohammed.souhoolaapp.domain.models.Photo
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface FlikerPhotoDao {
+interface FlickrPhotoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(photos: List<Photo>)
 

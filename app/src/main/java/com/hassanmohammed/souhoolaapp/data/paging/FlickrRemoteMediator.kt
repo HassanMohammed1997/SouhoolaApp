@@ -5,9 +5,9 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.hassanmohammed.souhoolaapp.data.db.FlikerDatabase
-import com.hassanmohammed.souhoolaapp.data.remote.FlikerService
-import com.hassanmohammed.souhoolaapp.domain.models.FlikerPhotoRemoteKeys
+import com.hassanmohammed.souhoolaapp.data.db.AppDatabase
+import com.hassanmohammed.souhoolaapp.data.remote.FlickrService
+import com.hassanmohammed.souhoolaapp.domain.models.FlickrPhotoRemoteKeys
 import com.hassanmohammed.souhoolaapp.domain.models.Photo
 import retrofit2.HttpException
 import java.io.IOException
@@ -17,8 +17,8 @@ private const val DEFAULT_PAGE = 1
 
 @OptIn(ExperimentalPagingApi::class)
 class FlikerRemoteMediator @Inject constructor(
-    private val service: FlikerService,
-    private val db: FlikerDatabase
+    private val service: FlickrService,
+    private val db: AppDatabase
 
 ) : RemoteMediator<Int, Photo>() {
     private val photoDao = db.photoDao()
@@ -62,7 +62,7 @@ class FlikerRemoteMediator @Inject constructor(
                         val prevKey = if (page == DEFAULT_PAGE) null else page - 1
                         val nextKey = if (endOfPaginationReached) null else page + 1
                         val keys = data.photos.photo.map {
-                            FlikerPhotoRemoteKeys(
+                            FlickrPhotoRemoteKeys(
                                 id = it.id,
                                 prevKey = prevKey,
                                 nextKey = nextKey
@@ -84,7 +84,7 @@ class FlikerRemoteMediator @Inject constructor(
 
     private suspend fun getRemoteKeyClosestToCurrentPosition(
         state: PagingState<Int, Photo>,
-    ): FlikerPhotoRemoteKeys? {
+    ): FlickrPhotoRemoteKeys? {
         return state.anchorPosition?.let { position ->
             state.closestItemToPosition(position)?.id?.let { id ->
                 photoRemoteKeysDao.getPhotoRemoteKey(photoId = id)
@@ -94,7 +94,7 @@ class FlikerRemoteMediator @Inject constructor(
 
     private suspend fun getRemoteKeyForFirstItem(
         state: PagingState<Int, Photo>,
-    ): FlikerPhotoRemoteKeys? {
+    ): FlickrPhotoRemoteKeys? {
         return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
             ?.let { photo ->
                 photoRemoteKeysDao.getPhotoRemoteKey(photoId = photo.id)
@@ -103,7 +103,7 @@ class FlikerRemoteMediator @Inject constructor(
 
     private suspend fun getRemoteKeyForLastItem(
         state: PagingState<Int, Photo>,
-    ): FlikerPhotoRemoteKeys? {
+    ): FlickrPhotoRemoteKeys? {
         return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()
             ?.let { photo ->
                 photoRemoteKeysDao.getPhotoRemoteKey(photoId = photo.id)
