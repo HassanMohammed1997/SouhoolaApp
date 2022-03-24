@@ -10,23 +10,25 @@ import javax.inject.Inject
 private const val BANNER_VIEW_TYPE = 0
 private const val PHOTO_VIEW_TYPE = 1
 
-class FlikerPhotoPagingAdapter @Inject constructor() : PagingDataAdapter<Photo, RecyclerView.ViewHolder>(FLIKER_PHOTO_DIFF_UTIL) {
+class FlikerPhotoPagingAdapter @Inject constructor() :
+    PagingDataAdapter<Photo, RecyclerView.ViewHolder>(FLIKER_PHOTO_DIFF_UTIL) {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
         item?.let {
-            (holder as FlikerPhotoViewHolder).bind(item)
+            if (holder is FlikerPhotoViewHolder)
+                holder.bind(item)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == BANNER_VIEW_TYPE)
-            FlikerPhotoViewHolder.get(parent)
+            AdBannerViewHolder.get(parent)
         else
             FlikerPhotoViewHolder.get(parent)
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (position % 5 == 0)
+        return if (position % 5 == 0 && position > 0)
             BANNER_VIEW_TYPE
         else
             PHOTO_VIEW_TYPE
