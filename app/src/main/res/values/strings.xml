@@ -2,4 +2,5 @@
     <string name="app_name">SouhoolaApp</string>
     <string name="something_went_error">Something went error</string>
     <string name="no_internet_connection">No internet connection</string>
+    <string name="fliker_photo_url">https://farm%1s.static.flickr.com/%2s/%3s_%4s.jpg</string>
 </resources>

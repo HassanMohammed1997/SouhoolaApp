@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.hassanmohammed.souhoolaapp.domain.models.Photo" />
+
+        <variable
+            name="photo"
+            type="Photo" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                app:loadFlikerPhoto="@{@string/fliker_photo_url(photo.farm, photo.server, photo.id, photo.secret)}"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#43707070"
+                android:padding="8dp"
+                android:text="@{photo.title}"
+                tools:text="Hello" />
+        </FrameLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

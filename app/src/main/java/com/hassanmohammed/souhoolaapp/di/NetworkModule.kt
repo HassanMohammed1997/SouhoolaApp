@@ -42,7 +42,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BuildConfig.FLIKER_BASE_API)
+            .baseUrl(BuildConfig.FLICKR_BASE_URL)
             .build()
     }
 

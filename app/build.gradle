@@ -17,8 +17,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "FLIKER_BASE_API", FLIKER_BASE_API
-        buildConfigField "String", "FLIKER_API_KEY", FLIKER_API_KEY
+        buildConfigField "String", "FLICKR_BASE_URL", FLICKR_BASE_URL
+        buildConfigField "String", "FLICKR_API_KEY", FLICKR_API_KEY
+
+    }
+
+    dataBinding{
+        enabled = true
 
     }
 
@@ -87,6 +92,10 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-paging:2.5.0-alpha01"
+
+    //Coil
+    implementation "io.coil-kt:coil:2.0.0-rc02"
+
 
 
 
