@@ -8,6 +8,19 @@
     <fragment
         android:id="@+id/flickrPhotosFragment"
         android:name="com.hassanmohammed.souhoolaapp.presentation.framents.FlickrPhotosFragment"
-        android:label="FlickrPhotosFragment"
-        tools:layout="@layout/fragment_flickr_photos" />
+        android:label="Flickr Photos"
+        tools:layout="@layout/fragment_flickr_photos">
+        <action
+            android:id="@+id/action_flickrPhotosFragment_to_photoFullScreenFragment"
+            app:destination="@id/photoFullScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoFullScreenFragment"
+        android:name="com.hassanmohammed.souhoolaapp.presentation.framents.PhotoFullScreenFragment"
+        android:label="Full Screen"
+        tools:layout="@layout/fragment_photo_full_screen" >
+        <argument
+            android:name="photoUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>

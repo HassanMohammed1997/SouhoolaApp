@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.hassanmohammed.souhoolaapp.R
 import com.hassanmohammed.souhoolaapp.databinding.FragmentFlickrPhotosBinding
 import com.hassanmohammed.souhoolaapp.presentation.FlickerViewModel
@@ -37,6 +38,13 @@ class FlickrPhotosFragment : Fragment(R.layout.fragment_flickr_photos) {
                     header = FlickrPhotosLoadStateAdapter { flikerFlikerPhotoPagingPagingAdapter.retry() },
                     footer = FlickrPhotosLoadStateAdapter { flikerFlikerPhotoPagingPagingAdapter.retry() }
                 )
+        }
+        flikerFlikerPhotoPagingPagingAdapter.setOnFlickrPhotoClickListener { photoUrl ->
+            findNavController().navigate(
+                FlickrPhotosFragmentDirections.actionFlickrPhotosFragmentToPhotoFullScreenFragment(
+                    photoUrl
+                )
+            )
         }
     }
 

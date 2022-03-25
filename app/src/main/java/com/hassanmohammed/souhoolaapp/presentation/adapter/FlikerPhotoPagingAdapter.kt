@@ -22,11 +22,16 @@ class FlikerPhotoPagingAdapter @Inject constructor() :
         }
     }
 
+    private var onFlickrPhotoClickListener: OnFlickrPhotoClickListener? = null
+    fun setOnFlickrPhotoClickListener(listener: OnFlickrPhotoClickListener){
+        onFlickrPhotoClickListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == BANNER_VIEW_TYPE)
             AdBannerViewHolder.get(parent)
         else
-            FlickrPhotoViewHolder.get(parent)
+            FlickrPhotoViewHolder.get(parent, onFlickrPhotoClickListener)
     }
 
     override fun getItemViewType(position: Int): Int {
