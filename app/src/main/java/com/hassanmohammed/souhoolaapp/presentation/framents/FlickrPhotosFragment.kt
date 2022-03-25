@@ -12,6 +12,8 @@ import com.hassanmohammed.souhoolaapp.presentation.adapter.FlickrPhotosLoadState
 import com.hassanmohammed.souhoolaapp.presentation.adapter.FlikerPhotoPagingAdapter
 import com.hassanmohammed.souhoolaapp.utils.collectFlowSafely
 import com.hassanmohammed.souhoolaapp.utils.fragmentViewBinding
+import com.hassanmohammed.souhoolaapp.utils.isNetworkAvailable
+import com.hassanmohammed.souhoolaapp.utils.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -27,7 +29,9 @@ class FlickrPhotosFragment : Fragment(R.layout.fragment_flickr_photos) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupPhotoRecyclerView()
-        getFlickrPhotos()
+        fetchFlickrPhotos()
+        if (!isNetworkAvailable)
+            showSnackbar(R.string.you_are_offline)
 
     }
 
@@ -48,7 +52,7 @@ class FlickrPhotosFragment : Fragment(R.layout.fragment_flickr_photos) {
         }
     }
 
-    private fun getFlickrPhotos() {
+    private fun fetchFlickrPhotos() {
         collectFlowSafely {
             viewModel.getPhotos().collect {
                 flikerFlikerPhotoPagingPagingAdapter.submitData(it)

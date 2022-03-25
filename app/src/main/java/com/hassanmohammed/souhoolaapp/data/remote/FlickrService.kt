@@ -14,7 +14,7 @@ interface FlickrService {
         @Query("nojsoncallback") noJsonCallback: Int = 50,
         @Query("text") text: String = "Color",
         @Query("page") page: Int = 1,
-        @Query("per_page") per_page: Int = 20,
+        @Query("per_page") perPage: Int = 20,
         @Query("api_key") apiKey: String = BuildConfig.FLICKR_API_KEY
     ) : Response<FlickrPhoto>
 }

@@ -29,16 +29,18 @@
                 app:loadFlikerPhoto="@{@string/fliker_photo_url(photo.farm, photo.server, photo.id, photo.secret)}"
                 tools:src="@drawable/ic_launcher_background" />
 
-            <TextView
+            <kr.co.prnd.readmore.ReadMoreTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:background="#BC707070"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/white"
+                android:minHeight="48dp"
                 android:padding="8dp"
                 android:text="@{photo.title}"
-                tools:text="Hello" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white"
+                app:readMoreMaxLine="2"
+                app:readMoreText="@string/read_more_msg" />
         </FrameLayout>
 
 

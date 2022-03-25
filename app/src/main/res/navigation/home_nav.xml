@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/photoFullScreenFragment"
         android:name="com.hassanmohammed.souhoolaapp.presentation.framents.PhotoFullScreenFragment"
-        android:label="Full Screen"
-        tools:layout="@layout/fragment_photo_full_screen" >
+        android:label="Full screen"
+        tools:layout="@layout/fragment_photo_full_screen">
         <argument
             android:name="photoUrl"
             app:argType="string" />

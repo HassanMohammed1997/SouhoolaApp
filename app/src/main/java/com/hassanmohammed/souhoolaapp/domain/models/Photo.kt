@@ -16,7 +16,4 @@ data class Photo(
     val server: String = "",
     val farm: Int = 0,
     val title: String = "",
-    val ispublic: Int = 0,
-    val isfriend: Int = 0,
-    val isfamily: Int = 0
 )
