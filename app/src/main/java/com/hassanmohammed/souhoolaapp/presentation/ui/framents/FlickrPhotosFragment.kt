@@ -80,7 +80,7 @@ class FlickrPhotosFragment : Fragment(R.layout.fragment_flickr_photos) {
 
     }
 
-    private fun fetchFlickrPhotos(query: String = "spiderman") {
+    private fun fetchFlickrPhotos(query: String = "") {
         collectFlowSafely {
             viewModel.getPhotos(query).collect {
                 flikerFlikerPhotoPagingPagingAdapter.submitData(it)

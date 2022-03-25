@@ -9,12 +9,13 @@ import retrofit2.http.Query
 interface FlickrService {
     @GET("rest/")
     suspend fun getPhotos(
+        @Query("text") text: String,
         @Query("method") method: String = "flickr.photos.search",
         @Query("format") format: String = "json",
         @Query("nojsoncallback") noJsonCallback: Int = 50,
-        @Query("text") text: String = "Color",
         @Query("page") page: Int = 1,
         @Query("per_page") perPage: Int = 20,
+        @Query("tags") tags: String = "movies, movie",
         @Query("api_key") apiKey: String = BuildConfig.FLICKR_API_KEY
     ) : Response<FlickrPhoto>
 }
