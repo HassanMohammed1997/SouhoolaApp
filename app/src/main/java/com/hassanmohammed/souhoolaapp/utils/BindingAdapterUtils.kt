@@ -1,4 +1,4 @@
-package com.hassanmohammed.souhoolaapp.presentation
+package com.hassanmohammed.souhoolaapp.utils
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

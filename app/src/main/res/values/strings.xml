@@ -6,4 +6,5 @@
     <string name="retry">Retry</string>
     <string name="read_more_msg">Read more</string>
     <string name="you_are_offline">You are offline</string>
+    <string name="refresh">Refresh</string>
 </resources>

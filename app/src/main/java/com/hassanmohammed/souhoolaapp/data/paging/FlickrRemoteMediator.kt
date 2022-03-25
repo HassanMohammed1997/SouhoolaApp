@@ -30,7 +30,7 @@ class FlikerRemoteMediator @Inject constructor(
             val page = when (loadType) {
                 LoadType.REFRESH -> {
                     val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
-                    remoteKeys?.nextKey?.minus(1) ?: 1
+                    remoteKeys?.nextKey?.minus(1) ?: DEFAULT_PAGE
                 }
                 LoadType.PREPEND -> {
                     val remoteKeys = getRemoteKeyForFirstItem(state)

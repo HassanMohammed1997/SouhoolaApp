@@ -1,4 +1,4 @@
-package com.hassanmohammed.souhoolaapp.data.resporitory
+package com.hassanmohammed.souhoolaapp.data.repository
 
 import androidx.paging.PagingData
 import com.hassanmohammed.souhoolaapp.domain.models.Photo

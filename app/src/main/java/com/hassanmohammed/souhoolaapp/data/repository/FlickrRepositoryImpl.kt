@@ -1,4 +1,4 @@
-package com.hassanmohammed.souhoolaapp.data.resporitory
+package com.hassanmohammed.souhoolaapp.data.repository
 
 import androidx.paging.PagingData
 import com.hassanmohammed.souhoolaapp.data.datasource.local.FlickrPhotoLocalDataSource
@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class FlickrRepositoryImpl @Inject constructor(
-    private val localeDataSource: FlickrPhotoLocalDataSource,
+    private val localDataSource: FlickrPhotoLocalDataSource,
     private val remoteDataSource: FlickrPhotoRemoteDataSource
 
 ) : FlickrRepository {
@@ -17,6 +17,6 @@ class FlickrRepositoryImpl @Inject constructor(
     }
 
     override fun getPhotoFromDatabase(id: String): Flow<Photo> {
-        return localeDataSource.getPhotoFromDB(id)
+        return localDataSource.getPhotoFromDB(id)
     }
 }

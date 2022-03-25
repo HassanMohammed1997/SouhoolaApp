@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/flickrPhotosFragment"
-        android:name="com.hassanmohammed.souhoolaapp.presentation.framents.FlickrPhotosFragment"
+        android:name="com.hassanmohammed.souhoolaapp.presentation.ui.framents.FlickrPhotosFragment"
         android:label="Flickr Photos"
         tools:layout="@layout/fragment_flickr_photos">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/photoFullScreenFragment"
-        android:name="com.hassanmohammed.souhoolaapp.presentation.framents.PhotoFullScreenFragment"
+        android:name="com.hassanmohammed.souhoolaapp.presentation.ui.framents.PhotoFullScreenFragment"
         android:label="Full screen"
         tools:layout="@layout/fragment_photo_full_screen">
         <argument

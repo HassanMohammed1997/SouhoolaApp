@@ -1,4 +1,4 @@
-package com.hassanmohammed.souhoolaapp.presentation
+package com.hassanmohammed.souhoolaapp.presentation.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

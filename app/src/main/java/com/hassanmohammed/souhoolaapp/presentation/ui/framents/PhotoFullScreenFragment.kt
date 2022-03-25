@@ -1,4 +1,4 @@
-package com.hassanmohammed.souhoolaapp.presentation.framents
+package com.hassanmohammed.souhoolaapp.presentation.ui.framents
 
 import android.os.Bundle
 import android.view.View

@@ -7,8 +7,8 @@ import com.hassanmohammed.souhoolaapp.data.datasource.remote.FlickrPhotoRemoteDa
 import com.hassanmohammed.souhoolaapp.data.db.AppDatabase
 import com.hassanmohammed.souhoolaapp.data.db.FlickrPhotoDao
 import com.hassanmohammed.souhoolaapp.data.remote.FlickrService
-import com.hassanmohammed.souhoolaapp.data.resporitory.FlickrRepository
-import com.hassanmohammed.souhoolaapp.data.resporitory.FlickrRepositoryImpl
+import com.hassanmohammed.souhoolaapp.data.repository.FlickrRepository
+import com.hassanmohammed.souhoolaapp.data.repository.FlickrRepositoryImpl
 import com.hassanmohammed.souhoolaapp.domain.usecases.GetFlikerPhotoFromApiUseCase
 import com.hassanmohammed.souhoolaapp.domain.usecases.GetFlikerPhotoFromApiUseCaseImpl
 import com.hassanmohammed.souhoolaapp.domain.usecases.GetFlikerPhotoFromDatabaseUseCase
