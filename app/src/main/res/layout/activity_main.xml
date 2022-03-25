@@ -12,15 +12,18 @@
         android:layout_height="match_parent"
         tools:context=".presentation.MainActivity">
 
-        <androidx.recyclerview.widget.RecyclerView
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_home_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:id="@+id/flickr_photos_recycler"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:defaultNavHost="true"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/home_nav" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
