@@ -5,5 +5,5 @@ import com.hassanmohammed.souhoolaapp.domain.models.Photo
 import kotlinx.coroutines.flow.Flow
 
 interface FlickrPhotoRemoteDataSource {
-    fun getPhotos() : Flow<PagingData<Photo>>
+    fun getPhotos(query: String) : Flow<PagingData<Photo>>
 }

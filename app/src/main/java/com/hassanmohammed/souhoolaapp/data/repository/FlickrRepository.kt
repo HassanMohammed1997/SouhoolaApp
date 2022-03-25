@@ -5,7 +5,7 @@ import com.hassanmohammed.souhoolaapp.domain.models.Photo
 import kotlinx.coroutines.flow.Flow
 
 interface FlickrRepository {
-    fun getPhotos() : Flow<PagingData<Photo>>
+    fun getPhotos(query: String) : Flow<PagingData<Photo>>
 
     fun getPhotoFromDatabase(id: String) : Flow<Photo>
 }

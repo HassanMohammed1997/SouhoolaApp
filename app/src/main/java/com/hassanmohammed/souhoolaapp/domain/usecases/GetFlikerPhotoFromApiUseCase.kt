@@ -5,5 +5,5 @@ import com.hassanmohammed.souhoolaapp.domain.models.Photo
 import kotlinx.coroutines.flow.Flow
 
 interface GetFlikerPhotoFromApiUseCase {
-    operator fun invoke() : Flow<PagingData<Photo>>
+    operator fun invoke(query: String) : Flow<PagingData<Photo>>
 }

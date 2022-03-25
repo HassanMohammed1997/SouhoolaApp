@@ -13,7 +13,7 @@ class FlickerViewModel @Inject constructor(
     private val getFlikerPhotoFromApi: GetFlikerPhotoFromApiUseCase
 ) : ViewModel() {
 
-    fun getPhotos(): Flow<PagingData<Photo>> {
-        return getFlikerPhotoFromApi()
+    fun getPhotos(query: String): Flow<PagingData<Photo>> {
+        return getFlikerPhotoFromApi(query)
     }
 }

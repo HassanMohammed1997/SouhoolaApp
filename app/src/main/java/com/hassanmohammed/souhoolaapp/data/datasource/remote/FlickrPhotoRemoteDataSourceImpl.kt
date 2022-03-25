@@ -13,16 +13,17 @@ import javax.inject.Inject
 
 class FlickrPhotoRemoteDataSourceImpl @Inject constructor(
     private val api: FlickrService,
-    private val db: AppDatabase
+    private val db: AppDatabase,
 ) : FlickrPhotoRemoteDataSource {
     @OptIn(ExperimentalPagingApi::class)
-    override fun getPhotos(): Flow<PagingData<Photo>> {
+    override fun getPhotos(query: String): Flow<PagingData<Photo>> {
         val pagingSourceFactory = { db.photoDao().getAllPhotos() }
         return Pager(
             config = PagingConfig(pageSize = 20),
             remoteMediator = FlikerRemoteMediator(
                 api,
-                db
+                db,
+                query
             ),
             pagingSourceFactory = pagingSourceFactory
         ).flow

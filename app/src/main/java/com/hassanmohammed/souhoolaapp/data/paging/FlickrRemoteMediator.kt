@@ -18,7 +18,8 @@ private const val DEFAULT_PAGE = 1
 @OptIn(ExperimentalPagingApi::class)
 class FlikerRemoteMediator @Inject constructor(
     private val service: FlickrService,
-    private val db: AppDatabase
+    private val db: AppDatabase,
+    private val query: String
 
 ) : RemoteMediator<Int, Photo>() {
     private val photoDao = db.photoDao()
@@ -48,7 +49,7 @@ class FlikerRemoteMediator @Inject constructor(
                 }
             }
 
-            val response = service.getPhotos(page = page)
+            val response = service.getPhotos(page = page, text = query)
             var endOfPaginationReached = false
             if (response.isSuccessful) {
                 val data = response.body()

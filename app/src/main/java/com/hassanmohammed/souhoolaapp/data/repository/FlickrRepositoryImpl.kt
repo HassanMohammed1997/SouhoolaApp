@@ -12,8 +12,8 @@ class FlickrRepositoryImpl @Inject constructor(
     private val remoteDataSource: FlickrPhotoRemoteDataSource
 
 ) : FlickrRepository {
-    override fun getPhotos(): Flow<PagingData<Photo>> {
-        return remoteDataSource.getPhotos()
+    override fun getPhotos(query:String): Flow<PagingData<Photo>> {
+        return remoteDataSource.getPhotos(query)
     }
 
     override fun getPhotoFromDatabase(id: String): Flow<Photo> {
