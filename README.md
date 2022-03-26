@@ -21,7 +21,7 @@ https://drive.google.com/file/d/1RiEyeuJ8-USQNO9Ss8XhNIvQOKd1AT_Y/view?usp=shari
 - Paging3
 - ViewModel
 - Material Design
-- [Fliker API] https://www.flickr.com/services/rest/
+- [Flickr API] https://www.flickr.com/services/rest/
 - Kotlin-KTX
 - Navigation Components
 - Dagger/Hilt
