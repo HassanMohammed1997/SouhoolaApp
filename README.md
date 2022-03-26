@@ -27,7 +27,7 @@ https://drive.google.com/file/d/1RiEyeuJ8-USQNO9Ss8XhNIvQOKd1AT_Y/view?usp=shari
 - Dagger/Hilt
 - DataBinding
 
-Feel free to explore my code and I'll be happy if you contact me again for the next interview if my code looks good and my skills match the job's requirements.
+Feel free to explore my code. Thank you for your time and consideration, and I look forward to hearing from you soon.
 
 Thanks
 
